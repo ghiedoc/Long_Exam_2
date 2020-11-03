@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Form</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="checkout-box">
+      <h1>Billing Address</h1>
+      <form id="my_form" action="">
+        <label for="yourname">Full Name</label><br />
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          id="name"
+          onblur="blurFunction()"
+        />
+        <br />
+
+        <label for="address">Address</label><br />
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          id="address"
+        /><br />
+
+        <label for="country">Country</label><br />
+        <input
+          type="text"
+          name="country"
+          placeholder="Country"
+          id="country"
+        /><br />
+
+        <label for="state">State</label><br />
+        <input type="text" name="state" placeholder="state" id="state" /><br />
+
+        <label for="zip">Zip</label><br />
+        <input type="number" name="zip" placeholder="zip" id="zip" />
+
+        <!-- PAYMENT PART -->
+        <h1>Payment</h1>
+        <input
+          type="radio"
+          name="payment_method"
+          id="payment_credit"
+          value="Credit card"
+        />
+        <label for="payment_credit">Credit card</label>
+        <input
+          type="radio"
+          name="payment_method"
+          id="payment_debit"
+          value="Debit card"
+        />
+        <label for="payment_debit">Debit card</label>
+        <input
+          type="radio"
+          name="payment_method"
+          id="payment_paypal"
+          value="Paypal"
+        />
+        <label for="payment_paypal">Paypal</label>
+        <br /><br />
+
+        <label for="">Credit card (Master Card Only)</label><br />
+        <input type="text" name="credit_card" id="credit_card" /><br />
+        <label for="">Expiration Date</label><br />
+        <input type="text" name="expiration" id="expiration" /><br />
+        <label for="">CVV</label><br />
+        <input type="text" name="cvv" id="cvv" /><br />
+        <label for="">Name on card</label><br />
+        <input type="text" name="card_name" id="card_name" />
+        <hr />
+        <input type="checkbox" />
+        <label for=""
+          >I hereby agree that information above are legit credentials</label
+        >
+        <br />
+
+        <!-- SUBMIT BUTTON -->
+        <br />
+        <button id="submit" onclick="myFunction()">Submit</button>
+        <br />
+      </form>
+    </div>
+
+    <!-- ?script here -->
+    <script type="text/javascript" src="/js/validation.js"></script>
+  </body>
+</html>
