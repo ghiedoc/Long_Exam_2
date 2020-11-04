@@ -7,8 +7,18 @@
 }
 
 body {
+    background-image: linear-gradient(#f4f4f4, #c6d9ff);
     background-color: #f4f4f4;
     margin: 0;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 60%;
 }
 
 .checkout-box {
@@ -16,7 +26,7 @@ body {
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 20px auto;
-    border-top: 3px solid #547fd4;
+    border-top: 4px solid #547fd4;
 }
 
 .checkout-box h1 {
@@ -35,6 +45,7 @@ body {
 
 .checkout-box form input[type="text"],
 .checkout-box form input[type="email"],
+.checkout-box form input[type="tel"],
 .checkout-box form input[type="number"] {
     width: 410px;
     height: 50px;
@@ -58,4 +69,24 @@ button {
 button:hover {
     background-color: #2868c7;
     transition: background-color 0.2s;
+}
+
+.checkout-box #error_message{
+    margin: 0 auto;
+    width: 85%;
+    padding: 0px;
+    background: #f19f9f;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.7s ease;
+}
+
+.payment-container{
+    margin-top: -5px; 
+    margin-left: 150px;
+}
+
+.card-radio{
+    margin-top: 15px;
+    margin-left: 150px;
 }

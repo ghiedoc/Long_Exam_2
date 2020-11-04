@@ -3,86 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout Form</title>
+    <title>Contact Tracing Form</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <div class="checkout-box">
-      <h1>Billing Address</h1>
+      <!-- ?CONTACT TRACING  -->
+      <h1>Contact Tracing Form</h1>
       <form id="my_form" action="">
+        <!-- ?PERSONAL INFORMATION PART -->
+        <!-- ?NAME FIELD -->
         <label for="yourname">Full Name</label><br />
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          id="name"
-          onblur="blurFunction()"
-        />
+        <input type="text" name="name" id="name" onblur="handleOnBlur()"/>
         <br />
-
+        <!-- ?MOBILE FIELD -->
+        <label for="mobile">Mobile Number</label><br />
+        <input type="tel" name="mobile" id="mobile" onblur="handleOnBlur()"/>
+        <!-- ?AGE FIELD -->
+        <label for="age">Age</label><br />
+        <input type="number" name="zip" id="age" onblur="handleOnBlur()"/>
+        <!-- ?ADDRESS FIELD -->
         <label for="address">Address</label><br />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          id="address"
-        /><br />
-
+        <input type="text" name="address" id="address" onblur="handleOnBlur()"/><br />
+        <!-- ?COUNTRY FIELD -->
         <label for="country">Country</label><br />
-        <input
-          type="text"
-          name="country"
-          placeholder="Country"
-          id="country"
-        /><br />
-
-        <label for="state">State</label><br />
-        <input type="text" name="state" placeholder="state" id="state" /><br />
-
-        <label for="zip">Zip</label><br />
-        <input type="number" name="zip" placeholder="zip" id="zip" />
-
-        <!-- PAYMENT PART -->
-        <h1>Payment</h1>
-        <input
-          type="radio"
-          name="payment_method"
-          id="payment_credit"
-          value="Credit card"
-        />
-        <label for="payment_credit">Credit card</label>
-        <input
-          type="radio"
-          name="payment_method"
-          id="payment_debit"
-          value="Debit card"
-        />
-        <label for="payment_debit">Debit card</label>
-        <input
-          type="radio"
-          name="payment_method"
-          id="payment_paypal"
-          value="Paypal"
-        />
-        <label for="payment_paypal">Paypal</label>
-        <br /><br />
-
-        <label for="">Credit card (Master Card Only)</label><br />
-        <input type="text" name="credit_card" id="credit_card" /><br />
-        <label for="">Expiration Date</label><br />
-        <input type="text" name="expiration" id="expiration" /><br />
-        <label for="">CVV</label><br />
-        <input type="text" name="cvv" id="cvv" /><br />
-        <label for="">Name on card</label><br />
-        <input type="text" name="card_name" id="card_name" />
+        <input type="text" name="country" id="country" onblur="handleOnBlur()"/><br />
         <hr />
-        <input type="checkbox" />
-        <label for=""
-          >I hereby agree that information above are legit credentials</label
+        <!-- ?QUICK SURVEY PART -->
+        <label
+          >Have you traveled outside the country anytime from December 2019 'til
+          now?</label
         >
-        <br />
-
-        <!-- SUBMIT BUTTON -->
+        <div class="card-radio">
+          <input type="radio" name="surveyresponse" id="survey-yes" value="Yes"/>
+          <label">Yes</label>
+          <input type="radio" name="surveyresponse" id="survey-no" value="No" />
+          <label>No</label>
+        </div>
+        <br /><br />
+        <hr />
+        <!-- ?Image attached on the webpage -->
+        <img src="/images/covid.png" alt="response">
+        <!-- ?CERTIFYING THE INFORMATION PROVIDED -->
+        <input type="checkbox" name="agree" id="agree" value="agree"/>
+        <label>I hereby agree that the above information is true and correct</label
+        >
+        <!-- ?SUBMIT BUTTON - uses onclick function-->
         <br />
         <button id="submit" onclick="myFunction()">Submit</button>
         <br />

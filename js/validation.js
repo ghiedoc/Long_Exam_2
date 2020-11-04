@@ -1,77 +1,79 @@
 const name = document.getElementById("name");
+const mobile = document.getElementById("mobile");
+const age = document.getElementById("age");
 const address = document.getElementById("address");
-const state = document.getElementById("state");
-const zip = document.getElementById("zip");
+const country = document.getElementById("country");
 
-// PAYMENT
-const credit_card = document.getElementById("credit_card");
-const expiration = document.getElementById("expiration");
-const cvv = document.getElementById("cvv");
-const card_name = document.getElementById("card_name");
-
-// name should only contain letters
+// name & country should only contain letters
 var nameToMatch = /^[A-Za-z'\- ]/;
-// zip code must only contain 4 digits
-var zipCodeMatch = /^[0-9]{4}$/;
+// mobile should contain exactly 11 digits only
+var mobileToMatch = /^[0-9]{11,}$/;
 
 // PERSONAL INFORMATION
 my_form.addEventListener("submit", (e) => {
-  //   check if the field is empty
-  if (name.value === "" || card_name === "") {
-    alert("Name is required!");
-    return false;
-  }
-
-  //   check if it match the input
-  if (!nameToMatch.test(name.value) || !nameToMatch.test(card_name.value)) {
-    alert("No digits allowed on Name Field!");
-    return false;
-  }
-
-  //   check if the field is empty
+  /**
+   * validate the characters of the name and country field and check if the
+   * field is empty
+   */
   if (
+    !nameToMatch.test(name.value) ||
+    !nameToMatch.test(country.value) ||
     address.value === "" ||
+    mobile.value === "" ||
+    age.value === "" ||
     country.value === "" ||
-    state.value === "" ||
-    zip.value === ""
+    name.value === ""
   ) {
-    alert("Incomplete Fields!");
+    alert("Invalid/Incomplete input!");
     return false;
   }
 
-  //   check if it match the input
-  if (!zipCodeMatch.test(zip.value)) {
-    alert("Invalid Zip Code");
+  /**
+   * the mobile number field should only contain 11 digits
+   */
+  if (!mobileToMatch.test(mobile.value)) {
+    alert("Invalid Contact Number! 11 digits only");
+    return false;
+  }
+
+  /**
+   * the check box should be checked before submitting the information
+   */
+  var agree = document.getElementById("agree");
+  if (!agree.checked) {
+    alert("You must agree that the information you input is true!");
+    return false;
+  }
+
+  /**
+   * the question should also contain an answer before submitting
+   * otherwise it will not submit
+   */
+  var valid = false;
+  var x = document.getElementsByName("surveyresponse");
+  for (var i = 0; i < x.length; i++) {
+    if (x[i].checked) {
+      valid = true;
+      break;
+    }
+  }
+
+  if (valid) {
+    alert("Thank you for answering the Contact Tracing Form");
+  } else {
+    alert("Please aswer the quick survey!");
     return false;
   }
 });
 
-//PAYMENT INFORMATION
+// the fields will turn green if you click outside of the field
+var form = document.getElementById("my_form");
+form.addEventListener("blur", handleOnBlur, true);
 
-//   check if the button is selected or not
-var card_form = document.getElementById("my_form");
-card_form.addEventListener(
-  "submit",
-  function (event) {
-    var card_array = document.getElementsByName("payment_method"),
-      selection_made = false;
-    for (var i = 0; i < card_array.length; i++) {
-      if (card_array[i].checked) {
-        selection_made = true;
-        break;
-      }
-    }
-
-    if (!selection_made) {
-      event.preventDefault();
-      alert("A Card must be selected!");
-    }
-  },
-  false
-);
-
-// // onblur
-// function blurFunction() {
-//   // No focus = Changes the background color of input to red
-//   document.getElementById("name").style.borderColor = "#EE7679";
-// }
+function handleOnBlur() {
+  name.style.backgroundColor = "#DFF0D8";
+  mobile.style.backgroundColor = "#DFF0D8";
+  age.style.backgroundColor = "#DFF0D8";
+  address.style.backgroundColor = "#DFF0D8";
+  country.style.backgroundColor = "#DFF0D8";
+}
